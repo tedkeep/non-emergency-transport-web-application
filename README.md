@@ -1,98 +1,75 @@
-# Backend environment
+# Non-Emergency Transport Scheduling Application :ambulance:
 
-The backend environment is all the code run on the server. It mainly consists of the api connecting the frontend to the database. The backend is written in javascript and is designed to run on a Node js server environment which allows js to run on the server.
+A web application that aids the process of creating schedules for non-emergency transport.
 
-[[_TOC_]]
+## Tell me more?
 
-## Client folder
+The project is a [MERN stack](https://blog.hyperiondev.com/index.php/2018/09/10/everything-need-know-mern-stack/) web application for non-emergency medical transport. The application allows the operator to manage data about patients, fleet and personnel. That data is then used to plan and schedule trips to vehicles for the day. 
 
-The client folder holds all the code which is run on the clients browser, and so it should be looked at as a seperate entity to the rest of the content on the backend. Documentation for the frontend environment can be found [here](./client).
+Planned features include:
+- Drag and drop planning system for scheduling :white_check_mark:
+- connect to google maps api to predict journey times :white_check_mark:
+- data validation
+- printing the schedule 
+- User activity logs
+- User permissions
 
-## Config folder
+## How do I start contributing? :point_down:
 
-The config folder contains constant variables which, if they are ever changed, can be changed from one place and this is updated throughout the program. Documentation can be found [here](./config).
+Firstly, lets start with what technologies you need installed.
 
-## Middleware folder
+### Prerequisites
 
-This folder consists of the middleware which is run on api routes. Documentation is found [here](./middleware).
+- `Node` needs to be [installed](https://nodejs.org/en/). This allows javascript to be run on a server. The LTS (Long Term Support) version is recommended.
 
-## Models folder
+By installing node you also automagically have NPM (Node Package Manager) installed as well. NPM allows you to install packages which help with the project.
 
-The models folder contains all the data models for the database. They define the document structure for each model in the database. Documentation is found [here](./models).
+- `Git` is also [needed](https://git-scm.com/). Although this is probably a given as you're reading this on a git repository! 
 
-## Routes/api folder
+### Installing
 
-This folder contains the api routes that the frontend can access. Each route runs a block of code to return some data back to the frontend. Documenation can be found [here](./routes/api)
+Okay, so you have all the technologies needed, next thing to do is download the code and install the packages used from NPM. Let's get started!
 
-## package.json
-
-The package.json is where all the packages information is found. The packages hold code that is needed for the application to run and the package.json holds the information about these packages so anyone can download and install the packages to use and develop this project.
-
-More information on how to read, use and edit the package.json file can be found [here](https://docs.npmjs.com/files/package.json).
-
-## server.js
-
-The server js file setups and defines the api routes when it is run on the server, and also initiates the connection to the database. The following packages are used to setup the server and database connection:
-
-
-### **Express**
-
-[Express](https://expressjs.com/) is a framework that is built for the Node environment which in this project enables the api routes to be created and handles the HTTP connections.
-
-#### Express setup
-
-The server js file setups the Express framework and then sets the middleware of Express to handle the JSON format. This allows JSON to be handled and sent via HTTP. This is important as JSON is the format in which the data will be sent between the frontend the database.
-
-```javascript
-// Express setup
-const app = express();
-app.use(express.json());
-```
-
-#### Express api route
-
-The file assigns api routes to url's. The following example sets the users api routes (the route that will return information about users) to the url "localhost:[PORT]/api/users".
-
-```javascript
-// Assign routes to express
-app.use("/api/users", require("./routes/api/users.route"));
-app.use("/api/auth", require("./routes/api/auth.route"));
+The first thing to do is clone the repository to somewhere on your pc. So navigate to a folder in the command line where you want the repository to exist on your pc. Then run the following the command: 
 
 ```
+git clone https://cseegit.essex.ac.uk/ce301_2019/ce301_keep_e.git
+``` 
 
-#### Start
+Or if you prefer to use the SSH link, that can be found at the top of this page.
 
-The final job for this code is to start the server on a specific port. In our case in the development environment it is port 5000. However if the project is put into production on a server, the code will use the servers defined port for the server to run on.
-
-```javascript
-// start server to listen on port
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`server started on port ${port}`));
+Now that the project is installed on your pc, still in the command line, navigate to the code folder: 
 
 ```
+cd code
+``` 
 
-### **Mongoose**
-
-[Mongoose](https://mongoosejs.com/) js package is used to connect to the mongoDB database. The package makes it easy to connect to the database.
-
-#### Connecting to the database
-
-Mongoose connects to the database using the databases Uniform Resource Identifier (URI). The URI contains the username and password, and is stored in the config folder.
-
-```javascript
-// Mongoose setup
-const dbConnectionURI = config.get("mongoURI");
-
-// Mongoose connecting to the database
-mongoose
-  .connect(dbConnectionURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-  })
-  .then(() => console.log("MongoDB connected..."))
-  .catch(err => console.log(err));
+And install all the packages needed for the server side code: 
 
 ```
+npm install
+```
 
+Once that is all done, navigate to the client folder: 
 
+```
+cd client
+``` 
+
+And again, install the packages for the client code: 
+
+```
+npm install
+```
+
+Once that is finished installing all the packages, the project is all setup. Easy Peasy. Commands to run to start the development servers can be found at here.
+
+Finish line! :checkered_flag: You're all set to start contributing! :smiley:
+
+## Where do I find technical documentation? :sos:
+
+Technical documentation can be found in the README files within each folder which explains the contents of everything within the folder. You can start with the [code folders README](./Code) which gives an overview of top level files and folders.
+
+## Contributors
+
+Ted Keep
