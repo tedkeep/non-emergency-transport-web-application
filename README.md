@@ -2,9 +2,13 @@
 
 A web application that aids the process of creating schedules for non-emergency transport.
 
+<<<<<<< HEAD
 ## Tell me more?
 
 The project is a [MERN stack](https://blog.hyperiondev.com/index.php/2018/09/10/everything-need-know-mern-stack/) web application for non-emergency medical transport. The application allows the operator to manage data about patients, fleet and personnel. That data is then used to plan and schedule trips to vehicles for the day. 
+=======
+## Client folder
+>>>>>>> 16779937c87a148119a827108ff832ad359b770c
 
 Planned features include:
 - Drag and drop planning system for scheduling :white_check_mark:
