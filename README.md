@@ -2,8 +2,6 @@
 
 The backend environment is all the code run on the server. It mainly consists of the api connecting the frontend to the database. The backend is written in javascript and is designed to run on a Node js server environment which allows js to run on the server.
 
-[[_TOC_]]
-
 ## Client folder
 
 The client folder holds all the code which is run on the clients browser, and so it should be looked at as a seperate entity to the rest of the content on the backend. Documentation for the frontend environment can be found [here](./client).
